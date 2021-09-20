@@ -1,0 +1,529 @@
+* { 
+  box-sizing: border-box; 
+  font-family: 'Montserrat', sans-serif; 
+  scroll-behavior: smooth;
+  color: rgb(53, 53, 53);
+}
+
+body {
+  min-height: 100vh;
+  background-color: rgb(214, 214, 214);
+  margin: 0;
+}
+
+main {
+  padding: 0 2em;
+  max-width: 1400px;
+  margin: 1em auto;
+}
+
+@media screen and (max-width: 500px) {
+    main {
+        padding: 0 1em;
+    }
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+.txtL {
+  text-align: left;
+}
+.txtC {
+  text-align: center;
+}
+.txtR {
+  text-align: right;
+}
+
+.boxShaddow {
+  box-shadow: 2px 2px 4px gray;
+}
+
+.blue-link {
+    color: rgb(28, 107, 107);
+}
+
+.blue-link:hover {
+    color: rgb(48, 158, 158);
+}
+
+.red-link {
+    color: rgb(161, 0, 0);
+}
+
+.red-link:hover {
+    color: rgb(243, 0, 0);
+}
+
+.greenBtt, .cancelBtt {
+    border-radius: 5px;
+    padding: 7px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.greenBtt {
+    background-color: rgb(0, 68, 68);
+    color: rgb(181, 189, 189);
+}
+
+.greenBtt:hover {
+    background-color: rgb(0, 98, 98);
+    color: rgb(242, 243, 243);
+}
+
+.cancelBtt {
+    background-color: rgb(173, 173, 173);
+}
+
+.cancelBtt:hover {
+    background-color: rgb(236, 197, 197);
+}
+
+/*************************** MESSAGES **********************/
+
+/* Add padding and center-align text to the container */
+.modal-container {
+  padding: 16px;
+  text-align: center;
+}
+
+/* The Modal (background) */
+#modalPopup {
+  display: none;
+}
+
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(71, 78, 93, 0.8);
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #ececec;
+  margin: 10% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  max-width: 500px; /* Could be more or less, depending on screen size */
+}
+
+/* Modal Buttons */
+.closeMsg, .closeBtt, .saveBtt, .delBtt {
+  width: 45%;
+  height: 50px;
+  cursor: pointer;
+  border: 0;
+}
+
+.closeMsg {
+  background-color: rgb(197, 197, 197);
+}
+
+.closeMsg:hover {
+    background-color: rgb(141, 141, 141);
+    box-shadow: 2px 2px 4px darkgray;
+}
+
+/* Form Settings */
+.closeBtt {
+  color: whitesmoke;
+  background-color: rgb(107, 107, 107);
+}
+.closeBtt:hover {
+  background-color: rgb(78, 78, 78);
+}
+
+.saveBtt {
+  color: whitesmoke;
+  background-color: rgb(52, 149, 35);
+}
+.saveBtt:hover {
+  background-color: rgb(37, 105, 24);
+}
+
+.delBtt {
+  color: whitesmoke;
+  background-color: rgb(182, 0, 0);
+}
+.delBtt:hover {
+  background-color: rgb(98, 0, 0);
+}
+
+/* Clear floats */
+.clearfix {
+  margin-top: 2em;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#formDelete h1 {
+  color: rgb(182, 0, 0);
+}
+#formDelete h3 {
+  line-height: 1.5;
+}
+
+/*************************** LAYOUT **********************/
+.navBarResp {
+    display: none;
+    position: relative;
+}
+
+#navBar {
+    background-color: rgb(58, 58, 58);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#navBar a {
+    font-size: 1em;
+    padding: 1em;
+    color: rgb(199, 199, 199);
+}
+
+#navBar a:hover {
+    text-shadow: 1px 1px 5px white;
+}
+
+.navActive {
+    text-shadow: 0px 0px 6px rgb(233, 193, 101);
+    font-weight: 600;
+}
+
+#navBarLeft {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#navBarRight {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navBarRightR {
+    display: none;
+}
+
+.navBarRightR i {
+    color: lightgrey;
+}
+
+#navBar .logo {
+    padding: 5px
+}
+
+#navUsername {
+    margin: 0;
+    padding: 16px;
+}
+
+#banner {
+    background: url("../images/book.jpg") no-repeat center bottom;
+    background-size: cover;
+    width: 100%;
+    height: 150px;
+}
+
+@media screen and (max-width: 900px) {
+    .navBarRightN {
+        display: none;
+    }
+    .navBarRightR {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #navBar {
+        display: none;
+    }
+    .navBarResp {
+        display: block;
+    }
+    #pageTitle {
+      margin: 0.8em 0;
+    }
+}
+
+/*************************** TITLES / TABLES **********************/
+.counterRound {
+    display: inline;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgb(0, 68, 68);
+    color: rgb(209, 214, 214);
+    border: 1px solid rgb(0, 68, 68);
+    border-radius: 50%;
+    padding: 5px 10px;
+}
+
+#pageTitle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 1.5em 0;
+}
+
+#pageTitle h1 {
+    font-size: 35px;
+    display: inline-block;
+    margin: 0;
+    font-variant: small-caps;
+}
+
+#tableList th {
+    background-color: rgb(0, 68, 68);
+    color: rgb(200, 200, 200);
+}
+
+#tableList th, #tableList td {
+    padding: 10px;
+}
+
+#tableList td a {
+    display: block;
+}
+
+#tableList tbody tr:nth-child(odd) {
+    background-color: rgb(204, 204, 204);
+}
+#tableList tbody tr:nth-child(even) {
+    background-color: rgb(180, 180, 180);
+}
+
+#tableList tbody tr:hover {
+    box-shadow: 0px 0px 5px rgb(85, 85, 85);
+}
+
+@media screen and (max-width: 440px) {
+    table th, table td {
+        font-size: 0.8em;
+    }
+    .logo img {
+        width: 200px;
+    }
+}
+
+/*************************** LIVRES **********************/
+#livreFlexBoxes {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+@media screen and (max-width: 1400px) {
+    #livreFlexBoxes {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+.livreBoxes {
+    width: 250px;
+    height: 470px;
+    background-color: rgb(236, 236, 236);
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 10px;
+    padding: 25px 6px;
+    margin: 1em 1em 0 0;
+}
+
+.livreBoxes img {
+    width: 150px;
+    height: 200px;
+    object-fit: fill;
+}
+.livreBoxes p {
+    font-size: 14px;
+    margin: 4px auto;
+}
+
+.livreDispoBtt {
+    margin-top: 25px;
+}
+
+.livreIndispo {
+    display: inline;
+    background-color: rgb(172, 54, 54);
+    color: rgb(255, 255, 255);
+    padding: 7px 12px;
+    font-size: 10px !important;
+}
+
+/* LIVRE DETAILS */
+#livreDetails {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 3em;
+}
+
+#livreDetails img {
+    width: 175px;
+    height: 250px;
+    object-fit: fill;
+    float: left;
+    margin-right: 2em;
+}
+
+@media screen and (max-width: 600px) {
+    #livreDetails {
+        display: block; 
+    }
+    #livreDetails > * {
+        width: 100%;
+    }
+    #livreDetails img {
+        float: none;
+    }
+}
+
+/* DELAI - Emprunter */
+#delaiDays {
+    padding: 10px;
+    text-align: center;
+}
+
+/******************** USERS *****************/
+#formUser {
+    width: 400px;
+    margin: 2em auto;
+    padding: 2em 2em;
+    background-color: rgb(233, 233, 233);
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#formUser input {
+    width: 300px;
+    padding: 10px;
+    box-shadow: 2px 2px 3px rgb(144, 144, 144);
+    border: none;
+}
+
+.emailModify {
+  color: darkred;
+  font-size: 12px;
+}
+
+.userLogBtt {
+    background-color: rgb(0, 68, 68);
+    color: rgb(181, 189, 189);
+    border-radius: 5px;
+    padding: 7px 12px;
+    font-size: 14px;
+}
+
+#formUser.cancelBtt a{
+  width: 100%;
+  margin-top: 2em;
+}
+
+
+/***************************** PROFILE *****************************/
+#profileContent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#profileInfo {
+  width: 300px;
+}
+
+.profileAvatar {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: rgb(240, 240, 240);
+}
+
+.profileAvatar img {
+  width: 90%;
+  text-align: center;
+  margin-top: 5px;
+}
+
+#profileAvatarChangeImg {
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  padding: 10px;
+  color: whitesmoke;
+  background-color: rgba(128, 128, 128, 0.5); 
+  cursor: pointer;
+}
+
+#profileAvatarChangeImg:hover { 
+  background-color: rgba(128, 128, 128, 0.8); 
+}
+
+#profileLogoutBtt {
+  width: 300px;
+  padding: 10px;
+  background-color: rgb(170, 0, 0);
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+#profileLogoutBtt a {
+  display: block;
+  color: whitesmoke;
+}
+
+#profileLogoutBtt a:hover {
+  color: whitesmoke;
+  border-bottom: none;
+  
+}
+
+#profileLogoutBtt:hover {
+  background-color: rgb(119, 0, 0);
+}
+
+@media screen and (max-width: 1000px) {
+    #profileContent {
+        flex-direction: row;
+    }
+
+    #profileInfo, .profileAvatar, #profileLogoutBtt {
+        text-align: center;
+        margin: auto;
+    }
+
+    #profileInfo, #profileLivresRendus {
+        width: 100%;
+    }
+
+    .profileAvatar {
+        width: 300px;
+    }
+}

@@ -1,0 +1,61 @@
+.navResp {
+    background-color: rgb(58, 58, 58);
+    height: 60px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navResp span  {
+    position: absolute;
+    right: 7px;
+}
+
+#hamOpen i {
+  display: block;
+  top: 15px;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+#hamOpen i:hover {
+  color: rgb(218, 149, 59);
+}
+
+#hamClose i {
+  font-size: 40px;
+  display: none;
+  top: 5px;
+  color: rgb(218, 149, 59);
+  cursor: pointer;
+}
+
+#hamClose i:hover {
+  color: whitesmoke;
+}
+
+#navRespBackground {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    background-color: rgb(58,58,58);
+    z-index: 10;
+}
+
+.navResp-links {
+    display: none;
+    transition: all 2s ease-out;
+}
+
+.navResp-links a {
+    display: block;
+    width: 100%;
+    padding: 1em 0;
+    color: whitesmoke;
+}
+
+.navResp-links a:hover {
+    text-shadow: 1px 1px 5px white;
+}
